@@ -3,6 +3,7 @@ class Medical{
         this.x= 100;
         this.y= 300;
         this.money= score;
+        this.medicine =[];
     
         this.creamButton= createButton('150 INR Food-20 units');
         this.bandageButton= createButton('2 INR Food-5 units');
@@ -13,6 +14,18 @@ class Medical{
         this.cancelButton= createButton('Go Back');
     }
 
+    hideAll(){
+        for(var i=0; i<6; i++){
+            this.medicine[i].destroy();
+            this.creamButton.hide();
+            this.bandageButton.hide();
+            this.crepeButton.hide();
+            this.syringeButton.hide();
+            this.syrupButton.hide();
+        }
+        gameState = "start";
+    }
+
     display(){
 
         this.cancelButton.position(1270,30); 
@@ -20,6 +33,9 @@ class Medical{
         this.cancelButton.style('height', '40px');
         this.cancelButton.style('background', 'red');
         this.cancelButton.show();
+        this.cancelButton.mousePressed(()=>{
+            this.hideAll();
+        })
 
         this.creamButton.position(50,370); 
         this.creamButton.style('width', '100px');
@@ -53,7 +69,7 @@ class Medical{
         
         for(var i=0; i<6; i++){
             
-            var medicine= createSprite(this.x,this.y,20,20);
+            this.medicine[i]= createSprite(this.x,this.y,20,20);
             this.x+= 280;
             
             if(i===6){
@@ -62,20 +78,20 @@ class Medical{
             }
 
             switch(i){
-                case 0: medicine.addImage(cream);
-                medicine.scale= 0.5;
+                case 0: this.medicine[i].addImage(cream);
+                this.medicine[i].scale= 0.5;
                 break;
-                case 1: medicine.addImage(bandage);
-                medicine.scale= 0.3;
+                case 1: this.medicine[i].addImage(bandage);
+                this.medicine[i].scale= 0.3;
                 break;
-                case 2: medicine.addImage(crepeBandage);
-                medicine.scale= 0.2;
+                case 2: this.medicine[i].addImage(crepeBandage);
+                this.medicine[i].scale= 0.2;
                 break;
-                case 3: medicine.addImage(syringe);
-                medicine.scale= 0.2;
+                case 3: this.medicine[i].addImage(syringe);
+                this.medicine[i].scale= 0.2;
                 break;
-                case 4: medicine.addImage(syrupMed);
-                medicine.scale= 0.1;
+                case 4: this.medicine[i].addImage(syrupMed);
+                this.medicine[i].scale= 0.1;
                 break;
                 default: break;
 

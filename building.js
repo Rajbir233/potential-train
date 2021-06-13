@@ -6,6 +6,7 @@ class Building{
             toyShopImg];
         this.x= 100;
         this.y= 100;
+        this.building = [];
 
         this.toys= createButton('1000 INR Food-100 units');
         this.bank= createButton('2000 INR Food-200 units');
@@ -29,6 +30,33 @@ class Building{
         this.stationary= createButton('5000 INR Food-500 units');
     }
 
+    hideAll(){
+        console.log("HIDE");
+        for(var i=0; i< 20 ; i++){
+            this.building[i].destroy();   
+        }
+        this.toys.hide();
+        this.bank.hide();
+        this.college1.hide();
+        this.college2.hide();
+        this.grocery.hide();
+        this.h1.hide();
+        this.h2.hide();
+        this.house1.hide();
+        this.house2.hide();
+        this.house3.hide();
+        this.mall.hide();
+        this.office1.hide();
+        this.office2.hide();
+        this.park1.hide();
+        this.park2.hide();
+        this.pharmacy.hide();
+        this.restaurant.hide();
+        this.s1.hide();
+        this.s2.hide();
+        this.stationary.hide();
+    }
+
     display(){
 
         this.toys.position(50,120); 
@@ -37,12 +65,14 @@ class Building{
         this.toys.style('background', 'deepPink');
         this.toys.show();
         this.toys.mousePressed(()=>{
-            if(score < 1000){
+            if(score < 5){
                 alert("You dont have sufficient money to buy this");
             }
             else{
-                score = score - 1000;
-                alert("Congrats ! you bought a toy shop for your city !!! \n Money left : "+score)
+                score = score - 5;
+                alert("Congrats ! you bought a toy shop for your city !!! \n Money left : "+score);
+                this.hideAll();
+                gameState = "start";
             }
         })
 
@@ -162,7 +192,7 @@ class Building{
 
         for(var i=0; i<20; i++){
             
-            var building= createSprite(this.x,this.y,20,20);
+            this.building[i]= createSprite(this.x,this.y,20,20);
             this.x+= 280;
             
             if(i===4){
@@ -178,65 +208,65 @@ class Building{
                 this.x= 100;
             }
             switch(i){
-                case 0: building.addImage(toyShopImg);
-                building.scale= 0.5;
+                case 0: this.building[i].addImage(toyShopImg);
+                this.building[i].scale= 0.5;
                 break;
-                case 1: building.addImage(bankImg);
-                building.scale= 0.3;
+                case 1: this.building[i].addImage(bankImg);
+                this.building[i].scale= 0.3;
                 break;
-                case 2: building.addImage(collegeImg1);
-                building.scale= 0.07;
+                case 2: this.building[i].addImage(collegeImg1);
+                this.building[i].scale= 0.07;
                 break;
-                case 3: building.addImage(collegeImg2);
-                building.scale= 0.3;
+                case 3: this.building[i].addImage(collegeImg2);
+                this.building[i].scale= 0.3;
                 break;
-                case 4: building.addImage(groceryImg);
-                building.scale= 0.3;
+                case 4: this.building[i].addImage(groceryImg);
+                this.building[i].scale= 0.3;
                 break;
-                case 5: building.addImage(hospitalImg1);
-                building.scale= 0.3;
+                case 5: this.building[i].addImage(hospitalImg1);
+                this.building[i].scale= 0.3;
                 break;
-                case 6: building.addImage(hospitalImg2);
-                building.scale= 0.2;
+                case 6: this.building[i].addImage(hospitalImg2);
+                this.building[i].scale= 0.2;
                 break;
-                case 7: building.addImage(houseImg1);
-                building.scale= 0.07;
+                case 7: this.building[i].addImage(houseImg1);
+                this.building[i].scale= 0.07;
                 break;
-                case 8: building.addImage(houseImg2);
-                building.scale= 0.3;
+                case 8: this.building[i].addImage(houseImg2);
+                this.building[i].scale= 0.3;
                 break;
-                case 9: building.addImage(houseImg3);
-                building.scale= 0.2;
+                case 9: this.building[i].addImage(houseImg3);
+                this.building[i].scale= 0.2;
                 break;
-                case 10: building.addImage(mallImg);
-                building.scale= 0.3;
+                case 10: this.building[i].addImage(mallImg);
+                this.building[i].scale= 0.3;
                 break;
-                case 11: building.addImage(officeImg1);
-                building.scale= 0.13;
+                case 11: this.building[i].addImage(officeImg1);
+                this.building[i].scale= 0.13;
                 break;
-                case 12: building.addImage(officeImg2);
-                building.scale= 0.2;
+                case 12: this.building[i].addImage(officeImg2);
+                this.building[i].scale= 0.2;
                 break;
-                case 13: building.addImage(parkImg1);
-                building.scale= 0.4;
+                case 13: this.building[i].addImage(parkImg1);
+                this.building[i].scale= 0.4;
                 break;
-                case 14: building.addImage(parkImg2);
-                building.scale= 0.4;
+                case 14: this.building[i].addImage(parkImg2);
+                this.building[i].scale= 0.4;
                 break;
-                case 15: building.addImage(pharmacyImg);
-                building.scale= 0.3;
+                case 15: this.building[i].addImage(pharmacyImg);
+                this.building[i].scale= 0.3;
                 break;
-                case 16: building.addImage(restaurantImg);
-                building.scale= 0.4;
+                case 16: this.building[i].addImage(restaurantImg);
+                this.building[i].scale= 0.4;
                 break;
-                case 17: building.addImage(schoolImg1);
-                building.scale= 0.3;
+                case 17: this.building[i].addImage(schoolImg1);
+                this.building[i].scale= 0.3;
                 break;
-                case 18: building.addImage(schoolImg2);
-                building.scale= 0.3;
+                case 18: this.building[i].addImage(schoolImg2);
+                this.building[i].scale= 0.3;
                 break;
-                case 19: building.addImage(stationaryImg);
-                building.scale= 0.6;
+                case 19: this.building[i].addImage(stationaryImg);
+                this.building[i].scale= 0.6;
                 break;
                 default: break;
 
