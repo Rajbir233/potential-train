@@ -9,7 +9,6 @@ var edges;
 var basket, basketImg, bomb, bombImg, fruit, bg2Img, bg2;
 var appleImg, bananaImg, melonImg, orangeImg, pineappleImg;
 var citySetup, plantSetup, medicalShop, games, shopImg;
-var money=0
 var food = 0, count=0;
 var menuBg, menuBgImg;
 var bankImg, collegeImg1, collegeImg2, groceryImg, hospitalImg1, hospitalImg2;

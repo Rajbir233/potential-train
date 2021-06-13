@@ -36,6 +36,15 @@ class Building{
         this.toys.style('height', '65px');
         this.toys.style('background', 'deepPink');
         this.toys.show();
+        this.toys.mousePressed(()=>{
+            if(score < 1000){
+                alert("You dont have sufficient money to buy this");
+            }
+            else{
+                score = score - 1000;
+                alert("Congrats ! you bought a toy shop for your city !!! \n Money left : "+score)
+            }
+        })
 
         this.bank.position(330,120); 
         this.bank.style('width', '100px');
